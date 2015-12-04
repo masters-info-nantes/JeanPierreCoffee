@@ -29,7 +29,12 @@ def buyCoffee(token, charset='utf-8'):
 		'isoDate' : ""
 	})
 
-	headers = {'Api-Key': 'reQSFGgFSbgc54uyhjg35hgf23vJhg432JNkjH', 'Authorization': str(token), 'Content-Type': 'application/json;charset=UTF-8'}
+	headers = {
+		'Api-Key': 'reQSFGgFSbgc54uyhjg35hgf23vJhg432JNkjH', 
+		'Authorization': str(token), 
+		'Content-Type': 'application/json;charset=UTF-8'
+	}
+	
 	r = requests.get(AUTH_SERVER, headers=headers)
 	print r	
 	#print r.content
