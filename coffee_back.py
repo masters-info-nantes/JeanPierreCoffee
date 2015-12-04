@@ -14,7 +14,6 @@ def hello():
 
 @app.route("/buycoffee/<token>", methods=['GET'])
 def buyCoffee(token, charset='utf-8'):
-	print token
 
 	logs = jsonify({
 		'actionType' : "drink",
@@ -35,12 +34,14 @@ def buyCoffee(token, charset='utf-8'):
 		'Content-Type': 'application/json;charset=UTF-8'
 	}
 	
+	#GET request on the authentication server
 	r = requests.get(AUTH_SERVER, headers=headers)
-	print r	
+
 	#print r.content
 	#Send logs to log server
 	#l = requests.post(LOG_SERVER, logs=logs)
 	#print l.content
+
 	return (r.text, r.status_code, r.headers.items())
 
 if __name__ == "__main__":
